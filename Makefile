@@ -1,6 +1,6 @@
 build : server client log.h
 
-run : server client
+r : server client
 	./server
 
 s : server.cpp 
