@@ -12,12 +12,12 @@ int main()
     memset(&serv_addr, 0, sizeof(serv_addr));
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
-    serv_addr.sin_port = htons(1234);
+    serv_addr.sin_port = htons(4000);
 
     char buffer[10];
     while(strcmp(buffer, "end") != 0)
     {
-        int sock = socket(AF_INET, SOCK_STREAM, 0);
+        int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
         connect(sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr));
 
         scanf("%9s", buffer);

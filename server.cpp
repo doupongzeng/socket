@@ -15,15 +15,15 @@ int main()
     memset(&serv_addr, 0, sizeof(serv_addr));
     serv_addr.sin_family = AF_INET;  //Address Family ipv4
     serv_addr.sin_addr.s_addr = inet_addr("127.0.0.1"); // ip
-    serv_addr.sin_port = htons(1234); //Host to Network short
+    serv_addr.sin_port = htons(4000); //Host to Network short
     bind(serv_sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr));
     cout << "==bind now==" << endl;
     cout << "ip: " << inet_ntoa(serv_addr.sin_addr) << endl;
     cout << "port: " << ntohs(serv_addr.sin_port) << endl;
 
 
+    cout << "==Now listen : " << TimeNow() << "==" << endl;
     listen(serv_sock, 20);
-    cout << "==Now listen==" << endl;
 
     struct sockaddr_in clnt_addr;
     socklen_t clnt_addr_size = sizeof(clnt_addr);

@@ -1,13 +1,17 @@
-build : server client log.h
+build : server client  log.h
 
-r : server client
+r : server
+	#启动服务器
 	./server
 
-s : server.cpp 
-	g++ -o server.cpp server
+server : server.cpp 
+	#生成服务器
+	g++ -o server server.cpp
 
-c : client.cpp
-	g++ -o client.cpp client
+client : client.cpp
+	#生成客户端
+	g++ -o client client.cpp
 
-clean : server client
+clean : 
+	#清除
 	rm server client
